@@ -15,7 +15,7 @@ $schema: "https://moonrepo.dev/schemas/tasks.json"
 fileGroups:
   # List of configuration files located within the project root.
   configs:
-    - "*.{js,ts,json}"
+    - "*.{js,cjs,mjs,ts,json}"
 
   # List of non-test source files.
   sources:
