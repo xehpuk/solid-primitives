@@ -61,6 +61,7 @@ tasks:
     inputs:
       - "src/**/*"
       - "dev/**/*"
+      - "!dev/dist/**/*"
     outputs:
       - "dev/dist/**/*"
     deps:

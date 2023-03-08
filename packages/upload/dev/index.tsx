@@ -17,8 +17,8 @@ const SingleFileUpload: Component = () => {
         <h5>Select a single file</h5>
         <button
           onClick={() => {
-            selectFiles(([{ source, name, size, file }]) => {
-              console.log({ source, name, size, file });
+            selectFiles(([file]) => {
+              file && console.log(file);
             });
           }}
         >
@@ -31,9 +31,10 @@ const SingleFileUpload: Component = () => {
         <h5>Select a single file with async callback</h5>
         <button
           onClick={() => {
-            selectFilesAsync(async ([{ source, name, size, file }]) => {
+            selectFilesAsync(async ([file]) => {
+              if (!file) return;
               await doStuff(2);
-              console.log({ source, name, size, file });
+              console.log(file);
             });
           }}
         >
@@ -123,4 +124,4 @@ const App: Component = () => {
   );
 };
 
-render(() => <App />, document.getElementById("root"));
+render(() => <App />, document.getElementById("root")!);
