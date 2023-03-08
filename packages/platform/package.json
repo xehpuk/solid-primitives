@@ -37,10 +37,6 @@
   "main": "./dist/server.cjs",
   "module": "./dist/server.js",
   "types": "./dist/index.d.ts",
-  "browser": {
-    "./dist/server.js": "./dist/index.js",
-    "./dist/server.cjs": "./dist/index.cjs"
-  },
   "exports": {
     "worker": {
       "import": {

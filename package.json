@@ -13,7 +13,7 @@
     "lint:packages": "eslint --ignore-path .gitignore --max-warnings 0 packages/*/src/**",
     "lint:tests": "eslint --ignore-path .gitignore packages/*/test/** --quiet --rule \"no-only-tests/no-only-tests: error\"",
     "lint": "concurrently pnpm:lint:*",
-    "build:packages": "cross-env CI=true turbo run build --filter='./packages/*'",
+    "build:packages": "moon run :build",
     "build:site": "pnpm -dir site run build",
     "build": "pnpm run build:packages && pnpm run build:site",
     "test:client": "cross-env CI=true vitest -c ./configs/vitest.config.ts",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@mdx-js/mdx": "^2.3.0",
+    "@moonrepo/cli": "^0.25.4",
     "@solidjs/testing-library": "^0.6.1",
     "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.13.0",
@@ -57,7 +58,6 @@
     "solid-js": "^1.6.11",
     "tsup": "^6.6.3",
     "tsup-preset-solid": "^0.1.8",
-    "turbo": "^1.7.4",
     "type-fest": "^3.6.0",
     "typescript": "^4.9.5",
     "unocss": "^0.49.6",
@@ -65,7 +65,7 @@
     "vite-plugin-solid": "^2.5.0",
     "vitest": "^0.28.5"
   },
-  "packageManager": "pnpm@7.24.0",
+  "packageManager": "pnpm@7.29.0",
   "engines": {
     "node": ">=18.0.0"
   }

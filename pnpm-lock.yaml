@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@changesets/cli': ^2.26.0
       '@mdx-js/mdx': ^2.3.0
+      '@moonrepo/cli': ^0.25.4
       '@solidjs/testing-library': ^0.6.1
       '@types/fs-extra': ^11.0.1
       '@types/node': ^18.13.0
@@ -32,7 +33,6 @@ importers:
       solid-js: ^1.6.11
       tsup: ^6.6.3
       tsup-preset-solid: ^0.1.8
-      turbo: ^1.7.4
       type-fest: ^3.6.0
       typescript: ^4.9.5
       unocss: ^0.49.6
@@ -42,6 +42,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.26.0
       '@mdx-js/mdx': 2.3.0
+      '@moonrepo/cli': 0.25.4
       '@solidjs/testing-library': 0.6.1_solid-js@1.6.11
       '@types/fs-extra': 11.0.1
       '@types/node': 18.14.4
@@ -68,7 +69,6 @@ importers:
       solid-js: 1.6.11
       tsup: 6.6.3_typescript@4.9.5
       tsup-preset-solid: 0.1.8_33jyajmuvhjnhxb7klks6dlycu
-      turbo: 1.8.3
       type-fest: 3.6.1
       typescript: 4.9.5
       unocss: 0.49.8_rollup@3.18.0+vite@4.1.4
@@ -3394,6 +3394,78 @@ packages:
       - supports-color
     dev: true
 
+  /@moonrepo/cli/0.25.4:
+    resolution: {integrity: sha512-U5I5GqhsKXeJK+bvpPtoHBx0LGxDUclIctYgJImygNaWKtM7YQ6GXRaNeNZAR0RAsF3kWqyooW5Bk22cd+YPTA==}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      detect-libc: 2.0.1
+    optionalDependencies:
+      '@moonrepo/core-linux-arm64-gnu': 0.25.4
+      '@moonrepo/core-linux-arm64-musl': 0.25.4
+      '@moonrepo/core-linux-x64-gnu': 0.25.4
+      '@moonrepo/core-linux-x64-musl': 0.25.4
+      '@moonrepo/core-macos-arm64': 0.25.4
+      '@moonrepo/core-macos-x64': 0.25.4
+      '@moonrepo/core-windows-x64-msvc': 0.25.4
+    dev: true
+
+  /@moonrepo/core-linux-arm64-gnu/0.25.4:
+    resolution: {integrity: sha512-1+aAjobuf/O7noyRfYfyHN9LF3tNVr4RC+jvGVY2IZbxBBW6364X1dWnauojek7dxEy7RenThO0Xhch/Ajy4gA==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@moonrepo/core-linux-arm64-musl/0.25.4:
+    resolution: {integrity: sha512-lcnlCj0xXeVsBttJPyJ//TrAKOoiTL6a4z6ymyGMWVB7m9zqztUvPqN0zbp/HZXrCENopwFEMtkfjiCvx8znQQ==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@moonrepo/core-linux-x64-gnu/0.25.4:
+    resolution: {integrity: sha512-jG6yzgGCVhC6Y8aHkmzM7CGf8f4k5SPJC8skdQNEfOR/IPMD2dEn7d/R9YBmMx1A/T9GNftABHcMXyoKJQ5MhA==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@moonrepo/core-linux-x64-musl/0.25.4:
+    resolution: {integrity: sha512-xrkbJFZFYPfHAcKvXGzbX691g8B0tk0eqUmDtz9Aamlfdwt1Pc2TDJJvRY1/XIre39YgTC3ieajLPpjiIPtcyQ==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@moonrepo/core-macos-arm64/0.25.4:
+    resolution: {integrity: sha512-Wi1xG0CWNzwFQUZVOxuevy7Idx6kv3TR6iEZANmcS66HOuNfzZDi/+B/NZrdDT1bj7szZN/Lxch+Hjk1gOfidg==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@moonrepo/core-macos-x64/0.25.4:
+    resolution: {integrity: sha512-U+FERgelUjMJ8E8zLbudmJcOcR7C+Wn61ESkeJoYb4aq+DMJoPJgeKjmTbhhun02zwPr1tvL9owCBpa9M7S/Kw==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@moonrepo/core-windows-x64-msvc/0.25.4:
+    resolution: {integrity: sha512-a6kCHSukActKfuJKgcxM5Fd0UnqP7khrLRBYZ9WYEwNnKKZr2qF92uQwjx/fGW0QO9wEZNzX3qz0BsxQ5asAJw==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -5659,6 +5731,11 @@ packages:
 
   /detect-indent/6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
+    engines: {node: '>=8'}
+    dev: true
+
+  /detect-libc/2.0.1:
+    resolution: {integrity: sha512-463v3ZeIrcWtdgIg6vI6XUncguvr2TnGl4SzDXinkt9mSLpBJKXT3mW6xT3VQdDN11+WVs29pgvivTc4Lp8v+w==}
     engines: {node: '>=8'}
     dev: true
 
@@ -11023,67 +11100,6 @@ packages:
       yargs: 17.7.1
     dev: true
 
-  /turbo-darwin-64/1.8.3:
-    resolution: {integrity: sha512-bLM084Wr17VAAY/EvCWj7+OwYHvI9s/NdsvlqGp8iT5HEYVimcornCHespgJS/yvZDfC+mX9EQkn3V2JmYgGGw==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-darwin-arm64/1.8.3:
-    resolution: {integrity: sha512-4oZjXtzakopMK110kue3z/hqu3WLv+eDLZOX1NGdo49gqca9BeD8GbH+sXpAp6tqyeuzpss+PIliVYuyt7LgbA==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-linux-64/1.8.3:
-    resolution: {integrity: sha512-uvX2VKotf5PU14FCxJA5iHItPQno2JWzerMd+g3/h/Asay6dvxvtVjc39MQeGT0H5njSvzVKFkT+3/5q8lgOEg==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-linux-arm64/1.8.3:
-    resolution: {integrity: sha512-E1p+oH3XKMaPS4rqWhYsL4j2Pzc0d/9P5KU7Kn1kqVLo2T3iRA7n2KVULEieUNE0nTH+aIJPXYXOpqCI5wFJaA==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-windows-64/1.8.3:
-    resolution: {integrity: sha512-cnzAytHtoLXd0J7aNzRpZFpL/GTjcBmkvAPlbOdf/Pl1iwS4qzGrudZQ+OM1lmLgLIfBPIavsGHBknTwTNib4A==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo-windows-arm64/1.8.3:
-    resolution: {integrity: sha512-ulIiItNm2w/zYJdD5/oAzjzNns1IjbpweRzpsE8tLXaWwo6+fnXXkyloUug0IUhcd2k6fJXfoiDZfygqpOVuXg==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /turbo/1.8.3:
-    resolution: {integrity: sha512-zGrkU1EuNFmkq6iky6LcMqD4h0OLE8XysVFxQWRIZbcTNnf0XAycbsbeEyiJpiWeqb7qtg2bVuY9EYcNoNhVuQ==}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      turbo-darwin-64: 1.8.3
-      turbo-darwin-arm64: 1.8.3
-      turbo-linux-64: 1.8.3
-      turbo-linux-arm64: 1.8.3
-      turbo-windows-64: 1.8.3
-      turbo-windows-arm64: 1.8.3
-    dev: true
-
   /type-check/0.3.2:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==}
     engines: {node: '>= 0.8.0'}
@@ -11484,7 +11500,7 @@ packages:
       kolorist: 1.7.0
       sirv: 2.0.2
       ufo: 1.1.1
-      vite: 4.1.4_@types+node@18.14.4
+      vite: 4.1.4_ljrjoypxov5se64ibfjelu4vsu
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -11519,7 +11535,7 @@ packages:
       merge-anything: 5.1.4
       solid-js: 1.6.11
       solid-refresh: 0.5.0_solid-js@1.6.11
-      vite: 4.1.4_@types+node@18.14.4
+      vite: 4.1.4_ljrjoypxov5se64ibfjelu4vsu
       vitefu: 0.2.4_vite@4.1.4
     transitivePeerDependencies:
       - supports-color
@@ -11634,7 +11650,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.1.4_@types+node@18.14.4
+      vite: 4.1.4_ljrjoypxov5se64ibfjelu4vsu
     dev: true
 
   /vitest/0.28.5_jsdom@21.1.0:

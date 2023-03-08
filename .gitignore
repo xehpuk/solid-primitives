@@ -173,3 +173,7 @@ pages
 # checking primitve size
 _temp_output_primitive_size_dir
 _temp_check_primitive_size.ts
+
+# moon
+.moon/cache
+.moon/docker
