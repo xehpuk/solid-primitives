@@ -67,3 +67,28 @@ tasks:
     deps:
       # building the package dependencies might change something on the page
       - "^:build"
+
+  # test the package with vitest (client)
+  test-client:
+    command: "vitest -c ../../configs/vitest.config.ts"
+    inputs:
+      - "src/**/*"
+      - "test/**/*"
+      - "!test/server.test.ts"
+    outputs: []
+    deps:
+      - "^:build"
+    options:
+      affectedFiles: true
+
+  # test SSR with vitest (node)
+  test-ssr:
+    command: "vitest -c ../../configs/vitest.config.ts --mode ssr"
+    inputs:
+      - "src/**/*"
+      - "test/server.test.ts"
+    outputs: []
+    deps:
+      - "^:build"
+    options:
+      affectedFiles: true
