@@ -1,13 +1,16 @@
 import { createMediaQuery } from "@solid-primitives/media";
+import { defer } from "@solid-primitives/utils";
 import { A } from "@solidjs/router";
 import Fuse from "fuse.js";
 import Mark from "mark.js";
 import { FiChevronLeft, FiSearch, FiX } from "solid-icons/fi";
-import { Component, createSignal, For, onCleanup, onMount, Show } from "solid-js";
+import { Component, createEffect, createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import { createStore, produce } from "solid-js/store";
-import createEffectDeffered from "~/hooks/createEffectDeffered";
-import primitivesJSON from "~/primitives.json";
+import { TPrimitiveJson } from "~/ts/primitivesJson";
+import _primitivesJSON from "~/_generated/primitives.json";
 import CheckBox from "./CheckBox/CheckBox";
+
+const primitivesJSON: TPrimitiveJson = _primitivesJSON;
 
 type TPrimitive = {
   name: string;
@@ -115,34 +118,38 @@ const Search: Component<{
     });
   });
 
-  createEffectDeffered(
-    () => [
-      config.highlight.description.checked,
-      config.highlight.title.checked,
-      config.highlight.primitive.checked,
-      config.highlight.tag.checked,
-    ],
-    () => {
-      reHighlightTextFromSearch();
-    },
+  createEffect(
+    defer(
+      () => [
+        config.highlight.description.checked,
+        config.highlight.title.checked,
+        config.highlight.primitive.checked,
+        config.highlight.tag.checked,
+      ],
+      () => {
+        reHighlightTextFromSearch();
+      },
+    ),
   );
 
-  createEffectDeffered(search, search => {
-    const result = fuse.search(search);
+  createEffect(
+    defer(search, search => {
+      const result = fuse.search(search);
 
-    setSearchResult(
-      result.slice(0, 12).map((_item, _, arr) => {
-        const item = { ...(_item.item as any) } as TPrimitive;
-        const fusePrimitives = new Fuse(item.primitives, fusePrimitivesOptions);
-        const result = fusePrimitives.search(search);
-        item.primitivesTotalCount = item.primitives.length;
-        // item.primitives = result.slice(0, 5).map(item => (item.item));
-        item.primitives = result.map(item => item.item);
+      setSearchResult(
+        result.slice(0, 12).map((_item, _, arr) => {
+          const item = { ...(_item.item as any) } as TPrimitive;
+          const fusePrimitives = new Fuse(item.primitives, fusePrimitivesOptions);
+          const result = fusePrimitives.search(search);
+          item.primitivesTotalCount = item.primitives.length;
+          // item.primitives = result.slice(0, 5).map(item => (item.item));
+          item.primitives = result.map(item => item.item);
 
-        return item;
-      }),
-    );
-  });
+          return item;
+        }),
+      );
+    }),
+  );
 
   return (
     <div class="flex justify-center items-center w-[calc(100vw-32px)] xs:w-full max-w-[800px]">
@@ -252,7 +259,7 @@ const Search: Component<{
                       class="text-lg font-semibold text-[#49494B] dark:text-[#bec5cf]"
                       data-ignore-mark-title
                     >
-                      <A href={`/${name.toLowerCase()}`}>{name}</A>
+                      <A href={`/package/${name.toLowerCase()}`}>{name}</A>
                     </h4>
                     <p class="text-[14px] my-[6px]" data-ignore-mark-description>
                       {description}
@@ -266,7 +273,7 @@ const Search: Component<{
                               <Show when={showRest() || idx() < maxPrimitiveCount}>
                                 <li>
                                   <A
-                                    href={`/${name}#${item.toLowerCase()}`}
+                                    href={`/package/${name}#${item.toLowerCase()}`}
                                     class="text-[14px] sm:text-base text-[#063983] hover:text-black font-semibold px-2 py-[2px] bg-[#e6f0ff] dark:text-[#b9d6ff] dark:bg-[#30455b] dark:hover:text-[#fff] rounded-md inline-block transition-colors [&>mark]:background-[linear-gradient(0deg,#ffaf1d,#ffaf1d)_center_/_100%_75%_no-repeat]"
                                   >
                                     {item}

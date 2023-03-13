@@ -1,5 +1,5 @@
 // @refresh reload
-import { Suspense } from "solid-js";
+import { onMount, Suspense } from "solid-js";
 import {
   A,
   Body,
@@ -13,6 +13,8 @@ import {
   Scripts,
   Title,
 } from "solid-start";
+import { isServer } from "solid-js/web";
+import { debounce } from "@solid-primitives/scheduled";
 
 import "./root.scss";
 
@@ -20,11 +22,31 @@ import Header from "./components/Header/Header";
 import SolidBlocksHeaderClusterDefs from "./components/Icons/SolidBlocksHeaderClusterDefs";
 import Footer from "./components/Footer/Footer";
 
-const ghHandle = "solidjs-community";
-const ghRepoName = "solid-primitives";
-const url = `https://${ghHandle}.github.io/${ghRepoName}`;
+let url = "";
+if (isServer) {
+  const { SITE_URL } = process.env;
+  url = SITE_URL!;
+}
 
 export default function Root() {
+  // Primitives/Table.tsx produces a lot of hydration warnings in development mode.
+  if (import.meta.env.MODE === "development" && !isServer) {
+    const keys: string[] = [];
+    const cw = console.warn;
+    console.warn = (...args) => {
+      if (args[0] === "Unable to find DOM nodes for hydration key:") {
+        keys.push(args[1]);
+        logStoredWarnings();
+      } else cw(...args);
+    };
+    const logStoredWarnings = debounce(() => {
+      console.groupCollapsed(`There were ${keys.length} hydration warnings.`);
+      keys.forEach(key => cw("Unable to find DOM nodes for hydration key:", key));
+      console.groupEnd();
+      keys.length = 0;
+    }, 1000);
+  }
+
   return (
     <Html lang="en" data-html>
       <Head>
@@ -51,32 +73,15 @@ export default function Root() {
           name="twitter:description"
           content="A library of high-quality primitives that extend SolidJS reactivity"
         />
-        <Link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={`/${ghRepoName}/favicons/apple-touch-icon.png`}
-        />
-        <Link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href={`/${ghRepoName}/favicons/favicon-32x32.png`}
-        />
-        <Link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href={`/${ghRepoName}/favicons/favicon-16x16.png`}
-        />
-        <Meta
-          name="msapplication-TileImage"
-          content={`/${ghRepoName}/favicons/ms-icon-144x144.png`}
-        />
+        <Link rel="apple-touch-icon" sizes="180x180" href={`/favicons/apple-touch-icon.png`} />
+        <Link rel="icon" type="image/png" sizes="32x32" href={`/favicons/favicon-32x32.png`} />
+        <Link rel="icon" type="image/png" sizes="16x16" href={`/favicons/favicon-16x16.png`} />
+        <Meta name="msapplication-TileImage" content={`/favicons/ms-icon-144x144.png`} />
         <Meta name="msapplication-TileColor" content="#2c4f7c" />
         <Meta name="theme-color" content="#2c4f7c" />
         <Meta name="msapplication-TileColor" content="#2c4f7c" />
         <Meta name="theme-color" content="#2c4f7c" />
-        <link rel="icon" type="image/png" href={`/${ghRepoName}/favicons/favicon-32x32.png`} />
+        <link rel="icon" type="image/png" href={`/favicons/favicon-32x32.png`} />
         <script
           innerHTML={`
           if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
