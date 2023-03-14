@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@changesets/cli': ^2.26.0
       '@mdx-js/mdx': ^2.3.0
-      '@moonrepo/cli': ^0.26.0
+      '@moonrepo/cli': ^0.26.1
       '@solidjs/testing-library': ^0.6.1
       '@types/fs-extra': ^11.0.1
       '@types/node': ^18.15.0
@@ -42,7 +42,7 @@ importers:
     devDependencies:
       '@changesets/cli': 2.26.0
       '@mdx-js/mdx': 2.3.0
-      '@moonrepo/cli': 0.26.0
+      '@moonrepo/cli': 0.26.1
       '@solidjs/testing-library': 0.6.1_solid-js@1.6.12
       '@types/fs-extra': 11.0.1
       '@types/node': 18.15.0
@@ -3392,72 +3392,72 @@ packages:
       - supports-color
     dev: true
 
-  /@moonrepo/cli/0.26.0:
-    resolution: {integrity: sha512-5P0ET4Jta9NcCfbmp/J/xMXnTIh62sV8tk3hkBzP24HahJksuY3u4ACBOjSCRuavr6BJotM3RjHb3CleI2nTIA==}
+  /@moonrepo/cli/0.26.1:
+    resolution: {integrity: sha512-VFIvAW0JctgitzkTI/jLV5zB5z19JhDYPAaJoXULZvrW5FeasPFBgp92Tw36Sx0V4r506BWxzWw9gufUKfxmmA==}
     hasBin: true
     requiresBuild: true
     dependencies:
       detect-libc: 2.0.1
     optionalDependencies:
-      '@moonrepo/core-linux-arm64-gnu': 0.26.0
-      '@moonrepo/core-linux-arm64-musl': 0.26.0
-      '@moonrepo/core-linux-x64-gnu': 0.26.0
-      '@moonrepo/core-linux-x64-musl': 0.26.0
-      '@moonrepo/core-macos-arm64': 0.26.0
-      '@moonrepo/core-macos-x64': 0.26.0
-      '@moonrepo/core-windows-x64-msvc': 0.26.0
+      '@moonrepo/core-linux-arm64-gnu': 0.26.1
+      '@moonrepo/core-linux-arm64-musl': 0.26.1
+      '@moonrepo/core-linux-x64-gnu': 0.26.1
+      '@moonrepo/core-linux-x64-musl': 0.26.1
+      '@moonrepo/core-macos-arm64': 0.26.1
+      '@moonrepo/core-macos-x64': 0.26.1
+      '@moonrepo/core-windows-x64-msvc': 0.26.1
     dev: true
 
-  /@moonrepo/core-linux-arm64-gnu/0.26.0:
-    resolution: {integrity: sha512-sH6EC8V3gyxdks9lRgjqv6poLEw78oyuT2f2i3Ow2OgQN5WnvhKex2veqBdVP8MQiSbL9UeNHgNm0jlodpx1uA==}
+  /@moonrepo/core-linux-arm64-gnu/0.26.1:
+    resolution: {integrity: sha512-O53CAJDCId/72/stiEsb7rt7yxCqoXFyHvRCaiXZRQUMeQbrs567bITMPWdczlBt6mnfVGbOtcosW/DUdVnL6g==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@moonrepo/core-linux-arm64-musl/0.26.0:
-    resolution: {integrity: sha512-zEk0UbwEfoWUpS9EoYD6zuK347sppKPhaCO1oLicCRgucqECw7ULrOoCiji47EFIaMGwU3MiPGxA1LdXRdoB/A==}
+  /@moonrepo/core-linux-arm64-musl/0.26.1:
+    resolution: {integrity: sha512-SYR9LKyHZJbgDk/LLH2OlPv9lyzcTVGbhzhxC2H99pdmrLy5ruGY9As2eJ4Dgquehn0U3M1VVR5a5ZH1MBMcrA==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@moonrepo/core-linux-x64-gnu/0.26.0:
-    resolution: {integrity: sha512-eoazFiX7KjsBteaUU0orOHxP1bp+YV2AyVdMDGhyVPWtJLyQY22Pey8Yl3c9Jw3Npf0IISLZcdWEwOG/To2jMg==}
+  /@moonrepo/core-linux-x64-gnu/0.26.1:
+    resolution: {integrity: sha512-0ZK0jjZZbcFVmOMcZlb+SXzZd083vRxGxRMM/szMWGRgd+/L4j8hkK/Xf8e24lmuuVl/5Cqb5mqWime16EltRQ==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@moonrepo/core-linux-x64-musl/0.26.0:
-    resolution: {integrity: sha512-UvPAYhwNvckxISlGrGmxGBPlV5G8KverEIeb1a58GISqp8NdHTS2IBJY7hf8ghY0I+mObMWkKc5Vu3MTblcWoA==}
+  /@moonrepo/core-linux-x64-musl/0.26.1:
+    resolution: {integrity: sha512-C9PmTdOVSpQcmBjaDgodsUxlxLOXvhh420HeBS95Uz3HU4JFKG5sm4EeVpSKB7JkPspsONgYy8A7K1onV9SjRw==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@moonrepo/core-macos-arm64/0.26.0:
-    resolution: {integrity: sha512-vgr08M9RAbGqIx4zUkZqFlrE0EP86b7aHlR2jnIhGS4+5XvGr4zWqpAvwqNLEay9txy9P8kn5sB7J6OokBOiUw==}
+  /@moonrepo/core-macos-arm64/0.26.1:
+    resolution: {integrity: sha512-o8pUCW73PFlAJH8jtrWkD3XQk7FvU6lbeAJW3ixK7nOp73toxC6bcTbQcY0xSU6aOXa2fpp31r5lUOCs5KXAFg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@moonrepo/core-macos-x64/0.26.0:
-    resolution: {integrity: sha512-YqSGFj8p2y/QfHSiyn34Ctfx3qfR1fLChejpnL5LmBE/5LiSEbavvg9Rsd8HoGvM8E/FY0A53+UabtL0raDQ+g==}
+  /@moonrepo/core-macos-x64/0.26.1:
+    resolution: {integrity: sha512-gjl56zgyd13Hfb/bQg2+chzXMInviTxb572mN2akKbJqduR2c/vXpij8T1xzcBwYL+lXhfz1ziaE9n3ma2ehRg==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /@moonrepo/core-windows-x64-msvc/0.26.0:
-    resolution: {integrity: sha512-DfAOe80NTif9YhcnUkDChmXhWvyidqmdXKXdN6ai4W8E/Rr0LXe3EL79ljyhVDcc6Z77yzZkOwOMCyda8wLZ+g==}
+  /@moonrepo/core-windows-x64-msvc/0.26.1:
+    resolution: {integrity: sha512-3vN4JycYh3mKMw6xUuzjhySWMGtCuNc1OBTL00p5aRh7aWpgTGGBj8FnIvZsx4FRtpnzsYa0QjYjCkS22QPSxg==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
