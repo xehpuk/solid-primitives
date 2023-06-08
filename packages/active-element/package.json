@@ -1,6 +1,6 @@
 {
   "name": "@solid-primitives/active-element",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "A reactive document.activeElement. Check which element is currently focused.",
   "author": "Damian Tarnawski @thetarnav <gthetarnav@gmail.com>",
   "contributors": [
@@ -58,5 +58,8 @@
   "peerDependencies": {
     "solid-js": "^1.6.12"
   },
-  "typesVersions": {}
+  "typesVersions": {},
+  "devDependencies": {
+    "solid-js": "1.7.6"
+  }
 }

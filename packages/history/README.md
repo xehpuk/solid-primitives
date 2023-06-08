@@ -77,11 +77,30 @@ const [state, setState] = createStore({ a: 0, b: 0 });
 
 const history = createUndoHistory(() => {
   // track and clone the whole state
-  const stateVal = structuredClone(state);
+  const copy = JSON.parse(JSON.stringify(state));
   // reconcile the state back to the tracked value
-  return () => setState(reconcile(stateVal));
+  return () => setState(reconcile(copy));
 });
 ```
+
+To use `stricturedClone` instead of `JSON.parse(JSON.stringify())`, you can use the [`trackStore` utility from `@solid-primitives/deep`](https://primitives.solidjs.community/package/deep#trackstore):
+
+```ts
+import { trackStore } from "@solid-primitives/deep";
+
+const history = createUndoHistory(() => {
+  // track any update to the store
+  trackStore(state);
+  // clone the object underneath the store
+  const copy = stricturedClone(unwrap(state));
+  // reconcile the state back to the tracked value
+  return () => setState(reconcile(copy));
+});
+```
+
+To clone only the parts of the store that changed, you can use the [`captureStoreUpdates` utility from `@solid-primitives/deep`](https://primitives.solidjs.community/package/deep#captureStoreUpdates). This is useful for large stores where you want to avoid unnecessary cloning and reconciliation.
+
+The code for this example you'll find [in the source code of the DEMO](https://github.com/solidjs-community/solid-primitives/blob/main/packages/history/dev/index.tsx).
 
 ### Observing multiple sources
 
@@ -175,6 +194,37 @@ const history = createMemo(() =>
         },
   ),
 );
+```
+
+### Pause and resume
+
+To pause listening to changes, or batch multiple changes into one history point, you can create additional signal indicating whether to track changes or not. And then decide when to capture the state.
+
+```ts
+const [count, setCount] = createSignal(0);
+const [tracking, setTracking] = createSignal(true);
+
+const history = createUndoHistory(() => {
+  if (tracking()) {
+    const v = count();
+    return () => setCount(v);
+  }
+});
+
+setCount(1); // will create a point in history
+
+setTracking(false); // disable tracking
+
+setCount(2); // will NOT create a point in history
+setCount(3); // will NOT create a point in history
+
+setTracking(true); // enable tracking, and create a point in history for the last change
+
+history.undo(); // will set count to 1
+history.undo(); // will set count to 0
+
+history.redo(); // will set count to 1
+history.redo(); // will set count to 3
 ```
 
 ## Changelog

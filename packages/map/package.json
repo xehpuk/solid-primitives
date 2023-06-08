@@ -1,6 +1,6 @@
 {
   "name": "@solid-primitives/map",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "The Map & WeakMap data structures as a reactive signals.",
   "author": "Damian Tarnawski @thetarnav <gthetarnav@gmail.com>",
   "license": "MIT",
@@ -57,5 +57,8 @@
   "dependencies": {
     "@solid-primitives/trigger": "workspace:^"
   },
-  "typesVersions": {}
+  "typesVersions": {},
+  "devDependencies": {
+    "solid-js": "1.7.6"
+  }
 }

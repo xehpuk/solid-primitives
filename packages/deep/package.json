@@ -1,9 +1,11 @@
 {
   "name": "@solid-primitives/deep",
-  "version": "0.0.102",
-  "description": "Deep trigger effects for Stores.",
+  "version": "0.2.0",
+  "description": "Primitives for tracking and observing nested reactive objects in Solid.",
   "author": "Samuel Burbano <me@iosamuel.dev>",
-  "contributors": [],
+  "contributors": [
+    "Damian Tarnawski <gthetarnav@gmail.com>"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/solidjs-community/solid-primitives/tree/main/packages/deep#readme",
   "repository": {
@@ -15,16 +17,21 @@
   },
   "primitive": {
     "name": "deep",
-    "stage": 0,
+    "stage": 1,
     "list": [
-      "deepTrack"
+      "trackDeep",
+      "trackStore",
+      "captureStoreUpdates"
     ],
     "category": "Reactivity"
   },
   "keywords": [
     "solid",
     "primitives",
-    "deep"
+    "deep",
+    "store",
+    "reactivity",
+    "delta"
   ],
   "private": false,
   "sideEffects": false,
@@ -43,6 +50,7 @@
     },
     "require": "./dist/index.cjs"
   },
+  "typesVersions": {},
   "scripts": {
     "dev": "jiti ../../scripts/dev.ts",
     "build": "jiti ../../scripts/build.ts",
@@ -50,8 +58,13 @@
     "test": "pnpm run vitest",
     "test:ssr": "pnpm run vitest --mode ssr"
   },
+  "dependencies": {
+    "@solid-primitives/memo": "workspace:^"
+  },
   "peerDependencies": {
     "solid-js": "^1.6.12"
   },
-  "typesVersions": {}
+  "devDependencies": {
+    "solid-js": "1.7.6"
+  }
 }

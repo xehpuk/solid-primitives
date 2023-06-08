@@ -1,6 +1,6 @@
 {
   "name": "@solid-primitives/upload",
-  "version": "0.0.112",
+  "version": "0.0.113",
   "description": "Primitives for uploading files.",
   "author": "Rustam Ashurmatov <rr.ashurmatov.21@gmail.com>",
   "license": "MIT",
@@ -55,5 +55,8 @@
   "peerDependencies": {
     "solid-js": "^1.6.12"
   },
-  "typesVersions": {}
+  "typesVersions": {},
+  "devDependencies": {
+    "solid-js": "1.7.6"
+  }
 }

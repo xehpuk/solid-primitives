@@ -1,6 +1,6 @@
 {
   "name": "@solid-primitives/masonry",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Primitives for creating a reactive masonry layout.",
   "author": "Damian Tarnawski <gthetarnav@gmail.com>",
   "contributors": [],
@@ -56,7 +56,8 @@
     "solid-js": "^1.6.12"
   },
   "devDependencies": {
-    "@solid-primitives/media": "workspace:^"
+    "@solid-primitives/media": "workspace:^",
+    "solid-js": "1.7.6"
   },
   "dependencies": {
     "@solid-primitives/utils": "workspace:^"

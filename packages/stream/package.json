@@ -1,6 +1,6 @@
 {
   "name": "@solid-primitives/stream",
-  "version": "0.6.9",
+  "version": "0.6.10",
   "description": "Primitive that gets a user media stream from microphone, camera or screen",
   "author": "Alex Lohr <alex.lohr@logmein.com>",
   "license": "MIT",
@@ -58,5 +58,8 @@
   "peerDependencies": {
     "solid-js": "^1.6.12"
   },
-  "typesVersions": {}
+  "typesVersions": {},
+  "devDependencies": {
+    "solid-js": "1.7.6"
+  }
 }
